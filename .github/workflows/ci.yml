@@ -24,9 +24,9 @@ jobs:
         run: |
           printenv
           git branch -a
-          git fetch
-          git branch -a
-          git checkout main
+          #git fetch
+          #git branch -a
+          #git checkout main
 
       - name: Calculate version
         id: version
