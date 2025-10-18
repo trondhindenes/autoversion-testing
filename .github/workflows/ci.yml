@@ -22,6 +22,7 @@ jobs:
 
       - name: run stuff
         run: |
+          printenv
           git branch -a
           git fetch
           git branch -a
