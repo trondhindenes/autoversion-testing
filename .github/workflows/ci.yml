@@ -20,6 +20,13 @@ jobs:
         with:
           fetch-depth: 0  # Required for autoversion
 
+      - name: run stuff
+        run: |
+          git branch -a
+          git fetch
+          git branch -a
+          git checkout main
+
       - name: Calculate version
         id: version
         uses: trondhindenes/autoversion@v1.0.22
