@@ -22,5 +22,5 @@ jobs:
 
       - name: Calculate version
         id: version
-        uses: trondhindenes/autoversion@v1
+        uses: trondhindenes/autoversion@v1.0.22
 
