@@ -1,0 +1,26 @@
+name: Docker Build with Autoversion
+
+on:
+  push:
+    branches:
+      - main
+      - 'feature/**'
+  pull_request:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Required for autoversion
+
+      - name: Calculate version
+        id: version
+        uses: trondhindenes/autoversion@v1
+
