@@ -1,0 +1,44 @@
+version: 2.1
+
+workflows:
+  build-workflow:
+    jobs:
+      - build-and-push:
+          filters:
+            branches:
+              only:
+                - main
+                - /feature\/.*/
+          context: []
+
+jobs:
+  build-and-push:
+    docker:
+      - image: cimg/go:1.25
+
+    resource_class: medium
+
+    steps:
+      - checkout
+
+      - run:
+          name: Fetch full git history
+          command: |
+            git fetch --unshallow || true
+
+      - run:
+          name: Install autoversion
+          command: |
+            go install github.com/trondhindenes/autoversion/cmd/autoversion@v1.0.27
+
+      - run:
+          name: Run autoversion
+          command: |
+            autoversion
+
+      - run:
+          name: Debug information
+          command: |
+            printenv
+            git branch -a
+            git log origin/${CIRCLE_BRANCH} --oneline || git log --oneline
