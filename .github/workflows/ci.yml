@@ -34,7 +34,7 @@ jobs:
         run: |
           printenv
           git branch -a
-          git log trondhindenes-patch-1 --oneline
+          git log origin/trondhindenes-patch-1 --oneline
           #git fetch
           #git branch -a
           #git checkout main
