@@ -27,7 +27,7 @@ jobs:
 
       - name: run it
         run: |
-          go install github.com/trondhindenes/autoversion/cmd/autoversion@v1.0.26
+          go install github.com/trondhindenes/autoversion/cmd/autoversion@v1.0.27
           autoversion
 
       - name: run stuff
