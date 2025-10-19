@@ -6,9 +6,7 @@ workflows:
       - build-and-push:
           filters:
             branches:
-              only:
-                - main
-                - /feature\/.*/
+              ignore: []
           context: []
 
 jobs:
