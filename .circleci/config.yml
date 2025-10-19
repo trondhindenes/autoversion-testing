@@ -4,11 +4,6 @@ workflows:
   build-workflow:
     jobs:
       - build-and-push:
-          filters:
-            branches:
-              only:
-                - main
-          context: []
 
 jobs:
   build-and-push:
