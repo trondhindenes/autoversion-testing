@@ -34,11 +34,12 @@ jobs:
         run: |
           printenv
           git branch -a
+          git log trondhindenes-patch-1 --oneline
           #git fetch
           #git branch -a
           #git checkout main
 
-      - name: Calculate version
-        id: version
-        uses: trondhindenes/autoversion@v1.0.23
+      # - name: Calculate version
+      #   id: version
+      #   uses: trondhindenes/autoversion@v1.0.23
 
