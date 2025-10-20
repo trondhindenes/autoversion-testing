@@ -24,26 +24,10 @@ jobs:
         id: version
         uses: trondhindenes/autoversion-action@v1
 
-      # - name: Set up Go
-      #   uses: actions/setup-go@v5
-      #   with:
-      #     go-version: '1.25'
-
-      # - name: run it
-      #   run: |
-      #     go install github.com/trondhindenes/autoversion/cmd/autoversion@v1.0.27
-      #     autoversion
-
-      # - name: run stuff
-      #   run: |
-      #     printenv
-      #     git branch -a
-      #     git log origin/trondhindenes-patch-1 --oneline
-      #     #git fetch
-      #     #git branch -a
-      #     #git checkout main
-
-      # - name: Calculate version
-      #   id: version
-      #   uses: trondhindenes/autoversion@v1.0.23
-
+      - name: Use version outputs
+        run: |
+          echo "Version: ${{ steps.version.outputs.version }}"
+          echo "Major: ${{ steps.version.outputs.major }}"
+          echo "Minor: ${{ steps.version.outputs.minor }}"
+          echo "Patch: ${{ steps.version.outputs.patch }}"
+          echo "Is prerelease: ${{ steps.version.outputs.is-prerelease }}"
