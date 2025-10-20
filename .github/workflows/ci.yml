@@ -20,24 +20,28 @@ jobs:
         with:
           fetch-depth: 0  # Required for autoversion
 
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.25'
+      - name: Calculate version
+        id: version
+        uses: trondhindenes/autoversion@v1
 
-      - name: run it
-        run: |
-          go install github.com/trondhindenes/autoversion/cmd/autoversion@v1.0.27
-          autoversion
+      # - name: Set up Go
+      #   uses: actions/setup-go@v5
+      #   with:
+      #     go-version: '1.25'
 
-      - name: run stuff
-        run: |
-          printenv
-          git branch -a
-          git log origin/trondhindenes-patch-1 --oneline
-          #git fetch
-          #git branch -a
-          #git checkout main
+      # - name: run it
+      #   run: |
+      #     go install github.com/trondhindenes/autoversion/cmd/autoversion@v1.0.27
+      #     autoversion
+
+      # - name: run stuff
+      #   run: |
+      #     printenv
+      #     git branch -a
+      #     git log origin/trondhindenes-patch-1 --oneline
+      #     #git fetch
+      #     #git branch -a
+      #     #git checkout main
 
       # - name: Calculate version
       #   id: version
