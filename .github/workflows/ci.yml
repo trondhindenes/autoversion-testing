@@ -26,8 +26,11 @@ jobs:
 
       - name: Use version outputs
         run: |
-          echo "Version: ${{ steps.version.outputs.version }}"
-          echo "Major: ${{ steps.version.outputs.major }}"
-          echo "Minor: ${{ steps.version.outputs.minor }}"
-          echo "Patch: ${{ steps.version.outputs.patch }}"
-          echo "Is prerelease: ${{ steps.version.outputs.is-prerelease }}"
+          echo "semver: ${{ steps.version.outputs.semver }}"
+          echo "semverWithPrefix: ${{ steps.version.outputs.semverWithPrefix }}"
+          echo "pep440: ${{ steps.version.outputs.pep440 }}"
+          echo "pep440WithPrefix: ${{ steps.version.outputs.pep440WithPrefix }}"
+          echo "major: ${{ steps.version.outputs.major }}"
+          echo "minor: ${{ steps.version.outputs.minor }}"
+          echo "patch: ${{ steps.version.outputs.patch }}"
+          echo "isRelease: ${{ steps.version.outputs.isRelease }}"
